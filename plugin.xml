@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="cordova-plugin-popTip" version="0.0.1">
+    <name>PopTip</name>
+    <description>弹窗提示、toast提示</description>
+    <license>Apache 2.0</license>
+    <keywords>pop,tip,toast,alert</keywords>
+    <js-module src="www/popTip.js" name="popTip">
+        <clobbers target="popTip" />
+    </js-module>
+
+    <dependency id="cordova-plugin-zzcbase" url="ssh://git@61.144.46.102:10022/cordova/zzcbase.git" />
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="PopTip">
+                <param name="ios-package" value="CPAlertControllerPlugin"/>
+            </feature>
+        </config-file>
+        <header-file src="src/ios/CPAlertControllerPlugin.h" />
+        <source-file src="src/ios/CPAlertControllerPlugin.m" />
+    </platform>
+</plugin>
